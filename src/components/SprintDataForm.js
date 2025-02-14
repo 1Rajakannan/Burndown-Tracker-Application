@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SprintDataForm.module.css';
+import LoadingSpinner from './LoadingSpinner';
 
 // PUBLIC_INTERFACE
 const SprintDataForm = ({ onSubmit, isLoading }) => {

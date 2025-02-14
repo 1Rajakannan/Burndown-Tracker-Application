@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './BurndownChart.module.css';
+import LoadingSpinner from './LoadingSpinner';
 import {
   LineChart,
   Line,
@@ -12,7 +13,7 @@ import {
 } from 'recharts';
 
 // PUBLIC_INTERFACE
-const BurndownChart = ({ data, sprintMetrics }) => {
+const BurndownChart = ({ data, sprintMetrics, isLoading }) => {
   /**
    * Renders a burndown chart using Recharts
    * @param {Object} props
@@ -20,6 +21,14 @@ const BurndownChart = ({ data, sprintMetrics }) => {
    * @param {Object} props.sprintMetrics - Object containing sprint metrics
    * @returns {React.Component} Burndown chart component
    */
+  if (isLoading) {
+    return (
+      <div className={styles['burndown-chart-container']}>
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
   return (
     <div className={styles['burndown-chart-container']}>
       <div className={styles['chart-wrapper']}>
