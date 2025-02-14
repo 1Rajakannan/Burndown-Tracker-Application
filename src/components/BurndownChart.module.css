@@ -1,0 +1,101 @@
+.burndown-chart-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.sprint-metrics {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin-top: 20px;
+}
+
+.sprint-metrics h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.metric-item:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  font-weight: 500;
+}
+
+.metric-value {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .burndown-chart-container {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .chart-wrapper {
+    height: 300px;
+  }
+
+  .sprint-metrics {
+    padding: 12px 15px;
+  }
+
+  .sprint-metrics h3 {
+    font-size: 1.1rem;
+  }
+
+  .metric-item {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .burndown-chart-container {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .chart-wrapper {
+    height: 250px;
+  }
+
+  .sprint-metrics {
+    padding: 10px;
+  }
+
+  .sprint-metrics h3 {
+    font-size: 1rem;
+  }
+
+  .metric-item {
+    font-size: 0.85rem;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './BurndownChart.module.css';
 import {
   LineChart,
   Line,
@@ -20,8 +21,9 @@ const BurndownChart = ({ data, sprintMetrics }) => {
    * @returns {React.Component} Burndown chart component
    */
   return (
-    <div className="burndown-chart-container">
-      <ResponsiveContainer width="100%" height={400}>
+    <div className={styles['burndown-chart-container']}>
+      <div className={styles['chart-wrapper']}>
+        <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}
           margin={{
@@ -51,12 +53,22 @@ const BurndownChart = ({ data, sprintMetrics }) => {
             activeDot={{ r: 8 }}
           />
         </LineChart>
-      </ResponsiveContainer>
-      <div className="sprint-metrics">
+        </ResponsiveContainer>
+      </div>
+      <div className={styles['sprint-metrics']}>
         <h3>Sprint Metrics</h3>
-        <div>Velocity: {sprintMetrics.velocity}</div>
-        <div>Completion Rate: {sprintMetrics.completionRate}%</div>
-        <div>Remaining Work: {sprintMetrics.remainingWork} points</div>
+        <div className={styles['metric-item']}>
+          <span className={styles['metric-label']}>Velocity:</span>
+          <span className={styles['metric-value']}>{sprintMetrics.velocity}</span>
+        </div>
+        <div className={styles['metric-item']}>
+          <span className={styles['metric-label']}>Completion Rate:</span>
+          <span className={styles['metric-value']}>{sprintMetrics.completionRate}%</span>
+        </div>
+        <div className={styles['metric-item']}>
+          <span className={styles['metric-label']}>Remaining Work:</span>
+          <span className={styles['metric-value']}>{sprintMetrics.remainingWork} points</span>
+        </div>
       </div>
     </div>
   );
