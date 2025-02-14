@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import styles from './SprintDataForm.module.css';
 
 // PUBLIC_INTERFACE
-const SprintDataForm = ({ onSubmit }) => {
+const SprintDataForm = ({ onSubmit, isLoading }) => {
   const [formData, setFormData] = useState({
     totalPoints: '',
     sprintDuration: '',
@@ -50,8 +51,8 @@ const SprintDataForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="sprint-data-form">
-      <div className="form-group">
+    <form onSubmit={handleSubmit} className={styles['sprint-data-form']}>
+      <div className={styles['form-group']}>
         <label htmlFor="totalPoints">Total Story Points:</label>
         <input
           type="number"
@@ -64,7 +65,7 @@ const SprintDataForm = ({ onSubmit }) => {
         />
       </div>
 
-      <div className="form-group">
+      <div className={styles['form-group']}>
         <label htmlFor="sprintDuration">Sprint Duration (days):</label>
         <input
           type="number"
@@ -78,7 +79,7 @@ const SprintDataForm = ({ onSubmit }) => {
         />
       </div>
 
-      <div className="form-group">
+      <div className={styles['form-group']}>
         <label htmlFor="dailyProgress">Daily Progress (comma-separated):</label>
         <input
           type="text"
@@ -89,9 +90,15 @@ const SprintDataForm = ({ onSubmit }) => {
         />
       </div>
 
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className={styles['error-message']}>{error}</div>}
 
-      <button type="submit" className="submit-button">Submit Sprint Data</button>
+      <button 
+        type="submit" 
+        className={styles['submit-button']} 
+        disabled={isLoading}
+      >
+        {isLoading ? 'Submitting...' : 'Submit Sprint Data'}
+      </button>
     </form>
   );
 };
